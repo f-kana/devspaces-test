@@ -25,3 +25,6 @@ commands:
       commandLine: pip install -r requirements.txt
       group:
         kind: build
+events:
+  postStart:
+    - install-pip-packages
