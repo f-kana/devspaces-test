@@ -16,9 +16,8 @@ components:
 commands:
   - id: install-pip-packages
     exec:
-      label: "Install Pip Packages"
       component: python
-      workingDir: ${PROJECTS_ROOT}/my-project
+      workingDir: ${PROJECTS_ROOT}
       commandLine: pip install -r requirements.txt
 events:
   postStart:
