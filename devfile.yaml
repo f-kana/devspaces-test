@@ -1,6 +1,6 @@
 schemaVersion: 2.2.2
 metadata:
-  name: python-hello-world
+  name: my-django-pj
 components:
   - name: python
     container:
@@ -17,19 +17,11 @@ components:
     volume:
       size: 1G
 commands:
-  - id: run
-    exec:
-      label: "Run the application"
-      component: python
-      workingDir: ${PROJECTS_ROOT}/python-hello-world
-      commandLine: python -m venv .venv && . .venv/bin/activate && python hello-world.py
-      group:
-        kind: run
   - id: install-pip-packages
     exec:
       label: "Install Pip Packages"
       component: python
-      workingDir: ${PROJECTS_ROOT}/sample-python-project
+      workingDir: ${PROJECTS_ROOT}/devspaces-test  # workingDir should be same name as git repo.
       commandLine: pip install -r requirements.txt
       group:
         kind: build
