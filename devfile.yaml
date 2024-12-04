@@ -1,0 +1,25 @@
+schemaVersion: 2.2.2
+metadata:
+  name: my-project
+components:
+  - name: python
+    container:
+      image: registry.redhat.io/devspaces/udi-rhel8:3.17
+      memoryLimit: '2Gi'
+      memoryRequest: '1Gi'
+      cpuLimit: '2'
+      cpuRequest: '1'
+      mountSources: false
+  - name: venv
+    volume:
+      size: 1G
+commands:
+  - id: install-pip-packages
+    exec:
+      label: "Install Pip Packages"
+      component: python
+      workingDir: ${PROJECTS_ROOT}/my-project
+      commandLine: pip install -r requirements.txt
+events:
+  postStart:
+    - install-pip-packages
