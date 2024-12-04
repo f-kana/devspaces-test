@@ -19,6 +19,6 @@ commands:
       component: python
       workingDir: ${PROJECTS_ROOT}
       commandLine: pip install -r requirements.txt
-events:
-  postStart:
-    - install-pip-packages
+# events:
+#   postStart:
+#     - install-pip-packages
