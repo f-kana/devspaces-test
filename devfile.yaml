@@ -1,6 +1,6 @@
 schemaVersion: 2.2.2
 metadata:
-  name: my-project
+  name: python-hello-world
 components:
   - name: python
     container:
@@ -10,15 +10,3 @@ components:
       cpuLimit: '2'
       cpuRequest: '1'
       mountSources: false
-  - name: venv
-    volume:
-      size: 1G
-commands:
-  - id: install-pip-packages
-    exec:
-      component: python
-      workingDir: ${PROJECTS_ROOT}
-      commandLine: pip install -r requirements.txt
-# events:
-#   postStart:
-#     - install-pip-packages
